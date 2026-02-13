@@ -1,0 +1,292 @@
+{
+  "_fileDescription": "This JSON file controls ALL text content for the WealthsFun Claude Code Funnel pages. Update values here to change what appears on the site. Comments indicate which HTML section each object corresponds to.",
+
+  "shared": {
+    "_comment": "=== SHARED CONTENT === Used across all pages (index.ejs, indoctrination.ejs, sales.ejs)",
+    "brand": "WealthsFun",
+    "checkoutUrl": "https://app.wealthsfun.com/checkout-page-page",
+    "copyright": "&copy; 2026 WealthsFun. All rights reserved. Your life is your business.",
+    "footerLinks": {
+      "_comment": "Footer navigation links -- appears in <!-- ===== FOOTER ===== --> on sales.ejs",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "contact": "Contact",
+      "contactEmail": "hello@wealthsfun.com"
+    }
+  },
+
+  "indexPage": {
+    "_comment": "=== SQUEEZE / LANDING PAGE === views/index.ejs (served at /)",
+    "_pageFile": "views/index.ejs",
+    "title": "WealthsFun - Your Life is the Business",
+
+    "hero": {
+      "_comment": "<!-- ===== HERO SECTION ===== --> The main landing hero with headline and CTA buttons",
+      "_htmlSection": "HERO SECTION",
+      "badge": "Data-Driven Decisions",
+      "headingLine1": "Your Life is the Business —",
+      "headingHighlight": "Run It Like a CEO.",
+      "subheadline": "Stop guessing. Start leading. Get the strategic clarity you need to make confident decisions and build real wealth.",
+      "primaryButton": "View Programs",
+      "secondaryButton": "Learn More",
+      "socialProofCount": "2,847+",
+      "socialProofText": "CEOs already transformed their business"
+    },
+
+    "empowering": {
+      "_comment": "<!-- ===== EMPOWERING BUSINESSES SECTION ===== --> Two-column card grid explaining the value proposition",
+      "_htmlSection": "EMPOWERING BUSINESSES SECTION",
+      "heading": "Empowering Businesses",
+      "subheading": "We help CEOs of Life turn chaos into clarity",
+      "cards": [
+        {
+          "number": "01",
+          "title": "Strategic Clarity",
+          "description": "Cut through the noise with data-driven frameworks that reveal exactly where to focus your time, energy, and resources."
+        },
+        {
+          "number": "02",
+          "title": "Execution Power",
+          "description": "Transform insights into action with proven systems that eliminate guesswork and accelerate your path to real results."
+        }
+      ]
+    },
+
+    "promise": {
+      "_comment": "<!-- ===== OUR PROMISE SECTION ===== --> Glass card with the promise statement",
+      "_htmlSection": "OUR PROMISE SECTION",
+      "badge": "OUR PROMISE",
+      "headingPart1": "You'll walk away with more ",
+      "headingHighlight1": "clarity, confidence,",
+      "headingMid": " and a ",
+      "headingHighlight2": "real strategy.",
+      "description": "No fluff. No generic advice. Just actionable insights tailored to your unique situation."
+    },
+
+    "footerCta": {
+      "_comment": "<!-- ===== FOOTER CTA SECTION ===== --> Final call-to-action before the footer",
+      "_htmlSection": "FOOTER CTA SECTION",
+      "heading": "Strategic Consulting to Elevate Your Business",
+      "buttonText": "Start Your Transformation"
+    }
+  },
+
+  "indoctrinationPage": {
+    "_comment": "=== CEO LETTER / INDOCTRINATION PAGE === views/indoctrination.ejs (served at /indoctrination)",
+    "_pageFile": "views/indoctrination.ejs",
+    "title": "The CEO Letter - WealthsFun",
+
+    "nav": {
+      "_comment": "<!-- ===== NAVIGATION ===== --> Top navigation bar",
+      "_htmlSection": "NAVIGATION",
+      "viewOfferLink": "View Offer →"
+    },
+
+    "hero": {
+      "_comment": "<!-- ===== HERO SECTION ===== --> Indoctrination page hero with bold statement",
+      "_htmlSection": "HERO SECTION",
+      "badge": "THE TRUTH",
+      "headingLine1": "They Sold You a Lie:",
+      "headingHighlight": "\"Just Work Harder.\"",
+      "subheadline": "Here's what they won't tell you about building real wealth..."
+    },
+
+    "letter": {
+      "_comment": "<!-- ===== THE LETTER SECTION ===== --> The main persuasive letter content inside glass card",
+      "_htmlSection": "THE LETTER SECTION",
+      "greeting": "Dear Future CEO of Your Life,",
+      "paragraphs": [
+        "You've been lied to. Not by anyone malicious — but by a system that profits from your confusion.",
+        "They told you to work harder. Hustle more. Sleep less. Grind until you \"make it.\"",
+        "But here's the uncomfortable truth: hard work without strategy is just... hard.",
+        "Most people drift. They react. They guess. They hope things work out.",
+        "Meanwhile, a small percentage of people — the ones building generational wealth, launching multiple businesses, and living with total freedom — all have one thing in common:"
+      ],
+      "callout1": {
+        "_comment": "First red-bordered callout box inside the letter",
+        "heading": "The Real Problem?",
+        "text": "You're treating your life like an accident waiting to happen — instead of a business that demands a CEO."
+      },
+      "centerQuote": "They treat their life like a data-driven business.",
+      "dontGuessLines": [
+        { "prefix": "They don't guess. They ", "bold": "measure", "suffix": "." },
+        { "prefix": "They don't hope. They ", "bold": "test", "suffix": "." },
+        { "prefix": "They don't drift. They ", "bold": "execute", "suffix": "." }
+      ],
+      "benefitsHeading": "Here's What Changes When You Step Into the CEO Role:",
+      "benefits": [
+        { "text": "You stop guessing where your time goes — and start ", "bold": "allocating it like a $10M asset", "suffix": "." },
+        { "text": "You stop chasing shiny objects — and start ", "bold": "executing on a clear, proven strategy", "suffix": "." },
+        { "text": "You stop feeling overwhelmed by decisions — because you have a ", "bold": "framework that removes the guesswork", "suffix": "." },
+        { "text": "You stop wondering \"Will this work?\" — and start ", "bold": "tracking metrics that prove it", "suffix": "." }
+      ],
+      "callout2": {
+        "_comment": "Second gradient callout box inside the letter",
+        "heading": "Bottom line?",
+        "text": "If you're not treating your life like a business, you're leaving millions on the table — in revenue, in time, and in freedom."
+      },
+      "closingParagraphs": [
+        "The good news? You're here. Which means you're ready to stop drifting and start leading.",
+        "On the next page, I'm going to show you exactly how we help CEOs of Life go from chaos to clarity in 90 days or less.",
+        "No fluff. No generic advice. Just the exact frameworks, systems, and strategies that separate the top 1% from everyone else."
+      ],
+      "signoff": "Let's get to work.",
+      "signature": "— The WealthsFun Team"
+    },
+
+    "cta": {
+      "_comment": "<!-- ===== CTA SECTION ===== --> Call-to-action section after the letter",
+      "_htmlSection": "CTA SECTION",
+      "headingPart1": "Ready to Step Into the ",
+      "headingHighlight": "CEO Role?",
+      "description": "See exactly how we'll transform your business in the next 90 days.",
+      "buttonText": "View All Programs"
+    }
+  },
+
+  "salesPage": {
+    "_comment": "=== PROGRAMS & OFFERS PAGE === views/sales.ejs (served at /sales)",
+    "_pageFile": "views/sales.ejs",
+    "title": "Programs & Offers - WealthsFun",
+
+    "nav": {
+      "_comment": "<!-- ===== NAVIGATION ===== --> Sticky navigation bar with CTA button",
+      "_htmlSection": "NAVIGATION",
+      "ctaButton": "Get Started"
+    },
+
+    "hero": {
+      "_comment": "<!-- ===== HERO SECTION ===== --> Sales page hero with badge and headline",
+      "_htmlSection": "HERO SECTION",
+      "badge": "BUILD YOUR SOVEREIGN WEALTH SYSTEM",
+      "headingPart1": "Choose Your ",
+      "headingHighlight": "Path to Wealth",
+      "description": "Whether you're ready for deep mentorship or just need a strategic nudge, we have a program designed for where you are right now."
+    },
+
+    "flagshipProgram": {
+      "_comment": "<!-- ===== FLAGSHIP: SOVEREIGN WEALTH SYSTEMS MENTORSHIP ===== --> Main $7,000 flagship offer card",
+      "_htmlSection": "FLAGSHIP: SOVEREIGN WEALTH SYSTEMS MENTORSHIP",
+      "badge": "FLAGSHIP PROGRAM",
+      "title": "Sovereign Wealth Systems ",
+      "titleHighlight": "Mentorship",
+      "price": "$7,000",
+      "description": "My deep-dive, hands-on mentorship for those ready to build a complete Sovereign Wealth System around their life and business.",
+      "ctaButton": "Enroll Now",
+      "listHeading": "Inside this mentorship, we:",
+      "listItems": [
+        "Design or refine your entity structure (PBC + BSC and related entities)",
+        "Build your personal + business finance strategy with a clear roadmap",
+        "Map your cash flow loops: where money comes in, where it goes, and how to make it cycle back to you",
+        "Create a conscious-aware spending plan so more of your money works for you",
+        "Build your 90-day execution plan tailored to your real numbers and real life"
+      ],
+      "footnote": "You don't just get information — you get implementation, feedback, and adjustments until your system actually makes sense and you know how to run it."
+    },
+
+    "innerCircle": {
+      "_comment": "<!-- ===== INNER CIRCLE OPTIONS ===== --> Monthly and annual membership pricing cards",
+      "_htmlSection": "INNER CIRCLE OPTIONS",
+      "heading": "WealthsFun ",
+      "headingHighlight": "Inner Circle",
+      "subheading": "Learn the game... run the plays... grow with a room full of people actually doing the work.",
+      "description": "If you're not ready for 1:1 mentorship but you want serious structure, the Inner Circle gives you:",
+      "features": [
+        "Monthly live trainings on business structure, credit strategy, and wealth systems",
+        "Q&A calls where you can bring your questions, plans, and stuck points",
+        "Implementation challenges (30–90 days) that push you into action instead of passive \"note-taking\"",
+        "A community of real builders who talk assets, entities, and strategy... not just \"manifesting more money someday\""
+      ],
+      "monthly": {
+        "_comment": "Monthly pricing card (left column)",
+        "label": "MONTHLY",
+        "price": "$149.97",
+        "period": "per month",
+        "ctaButton": "Join Monthly"
+      },
+      "annual": {
+        "_comment": "Annual pricing card (right column) with SAVE badge",
+        "label": "ANNUAL",
+        "saveBadge": "SAVE $300+",
+        "price": "$1,497",
+        "period": "per year",
+        "ctaButton": "Join Annually & Save",
+        "footnote": "You get to see what others are doing, stretch your thinking, and stay accountable to your own wealth build-out."
+      }
+    },
+
+    "strategySession": {
+      "_comment": "<!-- ===== 1:1 STRATEGY SESSION ===== --> $300 one-time session offer",
+      "_htmlSection": "1:1 STRATEGY SESSION",
+      "badge": "ONE-TIME SESSION",
+      "title": "1:1 Wealth Systems ",
+      "titleHighlight": "Strategy Session",
+      "price": "$300",
+      "tagline": "One hour. One problem. One clear plan.",
+      "description": "Sometimes you don't need a full mentorship... you just need a sharper game plan.",
+      "ctaButton": "Book Your Session",
+      "focusHeading": "In this 1:1 session, we can focus on:",
+      "focusItems": [
+        "\"How do I legally structure my life as a business?\"",
+        "\"How do I use my credit without wrecking myself?\"",
+        "\"What's my next best move with the income and debt I have right now?\""
+      ],
+      "walkAwayHeading": "You'll walk away with:",
+      "walkAwayItems": [
+        "A clear breakdown of your current financial and structural situation",
+        "Targeted moves you can make over the next 30–90 days",
+        "A recording or detailed notes so you can revisit your plan anytime"
+      ]
+    },
+
+    "ceoAccelerator": {
+      "_comment": "<!-- ===== CEO ACCELERATOR ===== --> $15,000 high-touch intensive program",
+      "_htmlSection": "CEO ACCELERATOR",
+      "badge": "HIGH-TOUCH INTENSIVE",
+      "title": "The CEO Accelerator ",
+      "titleHighlight": "90-Day Intensive Program",
+      "price": "$15,000",
+      "description": "The exact system we use to help ambitious entrepreneurs go from overwhelmed operators to strategic CEOs — with proven frameworks, 1-on-1 coaching, and a community of winners.",
+      "ctaButton": "Apply for the Program",
+      "features": [
+        { "title": "Proven Frameworks", "description": "Strategic systems that deliver results" },
+        { "title": "1-on-1 Coaching", "description": "Direct access to personalized guidance" },
+        { "title": "Community of Winners", "description": "Network with high-performing peers" }
+      ]
+    },
+
+    "comparison": {
+      "_comment": "<!-- ===== COMPARISON / WHICH IS RIGHT FOR YOU ===== --> Decision helper section",
+      "_htmlSection": "COMPARISON / WHICH IS RIGHT FOR YOU",
+      "headingPart1": "Which Path is ",
+      "headingHighlight": "Right for You?",
+      "paths": [
+        {
+          "need": "I need full hands-on support building my wealth system",
+          "recommendation": "Sovereign Wealth Systems Mentorship ($7,000)"
+        },
+        {
+          "need": "I want ongoing training, community & accountability",
+          "recommendation": "Inner Circle ($149.97/mo or $1,497/yr)"
+        },
+        {
+          "need": "I just need a focused strategy session to solve one problem",
+          "recommendation": "1:1 Strategy Session ($300)"
+        },
+        {
+          "need": "I'm ready to transform from operator to strategic CEO",
+          "recommendation": "CEO Accelerator 90-Day Intensive ($15,000)"
+        }
+      ]
+    },
+
+    "finalCta": {
+      "_comment": "<!-- ===== FINAL CTA ===== --> Final call-to-action before footer",
+      "_htmlSection": "FINAL CTA",
+      "headingLine1": "Your Life is the Business —",
+      "headingHighlight": "Run It Like a CEO.",
+      "description": "Stop guessing. Start leading. Get the strategic clarity you need to make confident decisions and build real wealth.",
+      "buttonText": "View All Programs"
+    }
+  }
+}

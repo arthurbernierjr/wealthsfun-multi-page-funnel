@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= p.salesPage.title %></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Outfit', sans-serif;
+        }
+        body {
+            background-color: #050505;
+            background-image:
+                radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.03) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #EF4444 0%, #F97316 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(239, 68, 68, 0.3);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+        .price-card {
+            background: rgba(239, 68, 68, 0.05);
+            border: 2px solid rgba(239, 68, 68, 0.2);
+            transition: all 0.3s ease;
+        }
+        .price-card:hover {
+            border-color: rgba(239, 68, 68, 0.4);
+            transform: translateY(-4px);
+        }
+        .featured-card {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(249, 115, 22, 0.05) 100%);
+            border: 2px solid rgba(239, 68, 68, 0.4);
+        }
+        .featured-card:hover {
+            border-color: rgba(239, 68, 68, 0.6);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="px-6 py-6 border-b border-white/5 sticky top-0 backdrop-blur-xl bg-black/50 z-50">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <a href="index.html" class="text-2xl font-black text-white">
+                Wealths<span class="gradient-text">Fun</span>
+            </a>
+            <a href="<%= p.shared.checkoutUrl %>" class="btn-primary text-white px-6 py-3 rounded-full font-bold text-sm">
+                <%= p.salesPage.nav.ctaButton %>
+            </a>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="px-6 py-16 md:py-24">
+        <div class="max-w-5xl mx-auto text-center">
+            <div class="inline-block px-4 py-2 rounded-full bg-red-500 text-white text-sm font-bold mb-6">
+                <%= p.salesPage.hero.badge %>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black text-white mb-8 leading-tight">
+                <%= p.salesPage.hero.headingPart1 %><span class="gradient-text"><%= p.salesPage.hero.headingHighlight %></span>
+            </h1>
+            <p class="text-2xl text-gray-400 mb-12 leading-relaxed max-w-3xl mx-auto">
+                <%= p.salesPage.hero.description %>
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== FLAGSHIP: SOVEREIGN WEALTH SYSTEMS MENTORSHIP ===== -->
+    <section class="px-6 py-12">
+        <div class="max-w-5xl mx-auto">
+            <div class="featured-card rounded-3xl p-10 md:p-14 relative overflow-hidden">
+                <div class="absolute top-6 right-6 px-4 py-2 rounded-full bg-red-500 text-white text-sm font-bold">
+                    <%= p.salesPage.flagshipProgram.badge %>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-10 items-center">
+                    <div>
+                        <h2 class="text-4xl md:text-5xl font-black text-white mb-4">
+                            <%= p.salesPage.flagshipProgram.title %><span class="gradient-text"><%= p.salesPage.flagshipProgram.titleHighlight %></span>
+                        </h2>
+                        <div class="text-4xl font-black text-white mb-6"><%= p.salesPage.flagshipProgram.price %></div>
+                        <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                            <%= p.salesPage.flagshipProgram.description %>
+                        </p>
+                        <a href="<%= p.shared.checkoutUrl %>" class="btn-primary text-white px-10 py-5 rounded-full font-bold text-lg inline-flex items-center gap-2">
+                            <%= p.salesPage.flagshipProgram.ctaButton %>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-white mb-4"><%= p.salesPage.flagshipProgram.listHeading %></h3>
+                        <ul class="space-y-4">
+                            <% p.salesPage.flagshipProgram.listItems.forEach(function(item) { %>
+                            <li class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center flex-shrink-0 mt-1">
+                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <span class="text-gray-300"><%= item %></span>
+                            </li>
+                            <% }); %>
+                        </ul>
+                        <div class="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
+                            <p class="text-gray-300 text-sm">
+                                <%- p.salesPage.flagshipProgram.footnote %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== INNER CIRCLE OPTIONS ===== -->
+    <section class="px-6 py-12">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-4">
+                    <%= p.salesPage.innerCircle.heading %><span class="gradient-text"><%= p.salesPage.innerCircle.headingHighlight %></span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                    <%= p.salesPage.innerCircle.subheading %>
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+                <!-- Monthly -->
+                <div class="price-card rounded-3xl p-8 md:p-10">
+                    <div class="mb-6">
+                        <div class="text-gray-400 text-sm font-medium mb-2"><%= p.salesPage.innerCircle.monthly.label %></div>
+                        <div class="text-5xl font-black text-white mb-1"><%= p.salesPage.innerCircle.monthly.price %></div>
+                        <div class="text-gray-400"><%= p.salesPage.innerCircle.monthly.period %></div>
+                    </div>
+
+                    <div class="w-full h-px bg-white/10 my-6"></div>
+
+                    <p class="text-gray-300 mb-6">
+                        <%= p.salesPage.innerCircle.description %>
+                    </p>
+
+                    <ul class="space-y-3 mb-8">
+                        <% p.salesPage.innerCircle.features.forEach(function(feature) { %>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-gray-300 text-sm"><%= feature %></span>
+                        </li>
+                        <% }); %>
+                    </ul>
+
+                    <a href="<%= p.shared.checkoutUrl %>" class="btn-primary w-full text-white py-4 rounded-full font-bold text-center block">
+                        <%= p.salesPage.innerCircle.monthly.ctaButton %>
+                    </a>
+                </div>
+
+                <!-- Annual -->
+                <div class="price-card rounded-3xl p-8 md:p-10 relative">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-red-500 to-orange-500 text-white text-sm font-bold">
+                        <%= p.salesPage.innerCircle.annual.saveBadge %>
+                    </div>
+
+                    <div class="mb-6">
+                        <div class="text-gray-400 text-sm font-medium mb-2"><%= p.salesPage.innerCircle.annual.label %></div>
+                        <div class="text-5xl font-black text-white mb-1"><%= p.salesPage.innerCircle.annual.price %></div>
+                        <div class="text-gray-400"><%= p.salesPage.innerCircle.annual.period %></div>
+                    </div>
+
+                    <div class="w-full h-px bg-white/10 my-6"></div>
+
+                    <p class="text-gray-300 mb-6">
+                        <%= p.salesPage.innerCircle.description %>
+                    </p>
+
+                    <ul class="space-y-3 mb-8">
+                        <% p.salesPage.innerCircle.features.forEach(function(feature) { %>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-gray-300 text-sm"><%= feature %></span>
+                        </li>
+                        <% }); %>
+                    </ul>
+
+                    <a href="<%= p.shared.checkoutUrl %>" class="btn-primary w-full text-white py-4 rounded-full font-bold text-center block">
+                        <%= p.salesPage.innerCircle.annual.ctaButton %>
+                    </a>
+
+                    <p class="text-center text-gray-500 text-sm mt-4">
+                        <%= p.salesPage.innerCircle.annual.footnote %>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 1:1 STRATEGY SESSION ===== -->
+    <section class="px-6 py-12">
+        <div class="max-w-5xl mx-auto">
+            <div class="glass-card rounded-3xl p-10 md:p-14">
+                <div class="grid lg:grid-cols-2 gap-10 items-center">
+                    <div>
+                        <div class="inline-block px-4 py-2 rounded-full bg-white/5 text-gray-400 text-sm font-bold mb-4">
+                            <%= p.salesPage.strategySession.badge %>
+                        </div>
+                        <h2 class="text-4xl font-black text-white mb-4">
+                            <%= p.salesPage.strategySession.title %><span class="gradient-text"><%= p.salesPage.strategySession.titleHighlight %></span>
+                        </h2>
+                        <div class="text-4xl font-black text-white mb-2"><%= p.salesPage.strategySession.price %></div>
+                        <p class="text-xl text-gray-400 mb-6"><%= p.salesPage.strategySession.tagline %></p>
+                        <p class="text-gray-300 mb-8 leading-relaxed">
+                            <%= p.salesPage.strategySession.description %>
+                        </p>
+                        <a href="<%= p.shared.checkoutUrl %>" class="btn-primary text-white px-10 py-5 rounded-full font-bold text-lg inline-flex items-center gap-2">
+                            <%= p.salesPage.strategySession.ctaButton %>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-4"><%= p.salesPage.strategySession.focusHeading %></h3>
+                            <ul class="space-y-3">
+                                <% p.salesPage.strategySession.focusItems.forEach(function(item) { %>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span class="text-gray-300"><%= item %></span>
+                                </li>
+                                <% }); %>
+                            </ul>
+                        </div>
+
+                        <div class="p-6 rounded-xl bg-white/5 border border-white/10">
+                            <h4 class="text-lg font-bold text-white mb-3"><%= p.salesPage.strategySession.walkAwayHeading %></h4>
+                            <ul class="space-y-2">
+                                <% p.salesPage.strategySession.walkAwayItems.forEach(function(item) { %>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span class="text-gray-300"><%= item %></span>
+                                </li>
+                                <% }); %>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CEO ACCELERATOR ===== -->
+    <section class="px-6 py-12">
+        <div class="max-w-5xl mx-auto">
+            <div class="price-card rounded-3xl p-10 md:p-14 relative overflow-hidden">
+                <div class="absolute top-6 right-6 px-4 py-2 rounded-full bg-gradient-to-r from-red-500 to-orange-500 text-white text-sm font-bold">
+                    <%= p.salesPage.ceoAccelerator.badge %>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-10 items-center">
+                    <div>
+                        <h2 class="text-4xl md:text-5xl font-black text-white mb-4">
+                            <%= p.salesPage.ceoAccelerator.title %><span class="gradient-text"><%= p.salesPage.ceoAccelerator.titleHighlight %></span>
+                        </h2>
+                        <div class="text-5xl font-black text-white mb-6"><%= p.salesPage.ceoAccelerator.price %></div>
+                        <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                            <%= p.salesPage.ceoAccelerator.description %>
+                        </p>
+                        <a href="<%= p.shared.checkoutUrl %>" class="btn-primary text-white px-10 py-5 rounded-full font-bold text-lg inline-flex items-center gap-2">
+                            <%= p.salesPage.ceoAccelerator.ctaButton %>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="space-y-4">
+                        <% p.salesPage.ceoAccelerator.features.forEach(function(feature, index) { %>
+                        <div class="flex items-center gap-4 p-4 rounded-xl bg-white/5">
+                            <div class="w-12 h-12 rounded-xl bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                                <% if (index === 0) { %>
+                                <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <% } else if (index === 1) { %>
+                                <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                                </svg>
+                                <% } else { %>
+                                <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                </svg>
+                                <% } %>
+                            </div>
+                            <div>
+                                <div class="text-white font-bold"><%= feature.title %></div>
+                                <div class="text-gray-400 text-sm"><%= feature.description %></div>
+                            </div>
+                        </div>
+                        <% }); %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== COMPARISON / WHICH IS RIGHT FOR YOU ===== -->
+    <section class="px-6 py-16 bg-gradient-to-b from-transparent to-red-500/5">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-black text-white mb-4">
+                    <%= p.salesPage.comparison.headingPart1 %><span class="gradient-text"><%= p.salesPage.comparison.headingHighlight %></span>
+                </h2>
+            </div>
+
+            <div class="glass-card rounded-3xl p-8 md:p-10">
+                <div class="space-y-6">
+                    <% p.salesPage.comparison.paths.forEach(function(path) { %>
+                    <div class="flex items-start gap-4 p-4 rounded-xl hover:bg-white/5 transition-colors">
+                        <div class="w-3 h-3 rounded-full bg-red-500 flex-shrink-0 mt-2"></div>
+                        <div>
+                            <div class="text-white font-bold mb-1"><%= path.need %></div>
+                            <div class="text-gray-400">&rarr; <a href="<%= p.shared.checkoutUrl %>" class="text-red-500 hover:underline"><%= path.recommendation %></a></div>
+                        </div>
+                    </div>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FINAL CTA ===== -->
+    <section class="px-6 py-20 border-t border-white/5">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
+                <%= p.salesPage.finalCta.headingLine1 %><br>
+                <span class="gradient-text"><%= p.salesPage.finalCta.headingHighlight %></span>
+            </h2>
+            <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+                <%= p.salesPage.finalCta.description %>
+            </p>
+            <a href="<%= p.shared.checkoutUrl %>" class="btn-primary text-white px-12 py-6 rounded-full font-bold text-xl inline-flex items-center gap-2">
+                <%= p.salesPage.finalCta.buttonText %>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="px-6 py-8 border-t border-white/5">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-2xl font-black text-white">
+                    Wealths<span class="gradient-text">Fun</span>
+                </div>
+                <div class="flex gap-8 text-gray-400 text-sm">
+                    <a href="#" class="hover:text-white transition-colors"><%= p.shared.footerLinks.privacy %></a>
+                    <a href="#" class="hover:text-white transition-colors"><%= p.shared.footerLinks.terms %></a>
+                    <a href="mailto:<%= p.shared.footerLinks.contactEmail %>" class="hover:text-white transition-colors"><%= p.shared.footerLinks.contact %></a>
+                </div>
+            </div>
+            <div class="text-center text-gray-500 text-sm mt-6 pt-6 border-t border-white/5">
+                <p><%- p.shared.copyright %></p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

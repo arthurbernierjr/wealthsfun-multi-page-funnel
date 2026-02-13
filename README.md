@@ -2,54 +2,176 @@
 
 A high-converting 3-step sales funnel for WealthsFun's CEO Accelerator Program.
 
+## 📁 Content Management System
+
+All page text is controlled via a single JSON file. This makes it easy to update copy without touching HTML.
+
+### How It Works
+
+```
+content.json  →  server.js loads it  →  EJS templates render it  →  HTML output
+```
+
+### File Structure
+
+```
+wealthsfun-claude-code-funnel/
+├── content.json          # ← ALL TEXT CONTENT LIVES HERE
+├── server.js             # Express server that loads content.json
+├── views/
+│   ├── index.ejs         # Squeeze page template
+│   ├── indoctrination.ejs # CEO Letter template
+│   └── sales.ejs         # Programs & Offers template
+└── public/
+    └── *.html            # Static fallbacks (not used when server runs)
+```
+
+### Editing Content
+
+1. **Open `content.json`**
+2. **Find the section you want to edit** (use `_comment` fields as guides)
+3. **Update the text value**
+4. **Restart the server** (or it auto-reloads in dev mode)
+
+### JSON Structure Overview
+
+```json
+{
+  "_fileDescription": "Controls ALL text for the funnel pages",
+  
+  "shared": {
+    "_comment": "Used across all pages",
+    "brand": "WealthsFun",
+    "checkoutUrl": "https://app.wealthsfun.com/checkout-page-page",
+    "copyright": "© 2026 WealthsFun..."
+  },
+
+  "indexPage": {
+    "_comment": "=== SQUEEZE PAGE === views/index.ejs",
+    "hero": {
+      "_htmlSection": "HERO SECTION",  // Matches <!-- ===== HERO SECTION ===== -->
+      "badge": "Data-Driven Decisions",
+      "headingLine1": "Your Life is the Business —",
+      "headingHighlight": "Run It Like a CEO."
+    }
+  },
+
+  "indoctrinationPage": {
+    "_comment": "=== CEO LETTER === views/indoctrination.ejs",
+    // ...
+  },
+
+  "salesPage": {
+    "_comment": "=== PROGRAMS & OFFERS === views/sales.ejs",
+    // ...
+  }
+}
+```
+
+### Comment Field Guide
+
+| Field | Purpose |
+|-------|---------|
+| `_comment` | Human-readable description of the section |
+| `_pageFile` | Which EJS template uses this content |
+| `_htmlSection` | Matches the `<!-- ===== SECTION NAME ===== -->` comment in HTML |
+
+### Example: Updating the Hero Headline
+
+**In `content.json`:**
+```json
+"hero": {
+  "headingLine1": "Your Life is the Business —",
+  "headingHighlight": "Run It Like a CEO."
+}
+```
+
+**In `views/index.ejs`:**
+```html
+<h1>
+    <%= p.indexPage.hero.headingLine1 %><br>
+    <span class="gradient-text"><%= p.indexPage.hero.headingHighlight %></span>
+</h1>
+```
+
+**Output:**
+```html
+<h1>
+    Your Life is the Business —<br>
+    <span class="gradient-text">Run It Like a CEO.</span>
+</h1>
+```
+
+---
+
 ## 🎯 Funnel Structure
 
-### Step 1: **index.html** (Squeeze Page)
+### Step 1: **index.ejs** (Squeeze Page)
 **Purpose:** Capture attention and build initial interest
 
-**Key Elements:**
-- Hero section with bold value proposition
-- "Data-Driven Decisions" badge with star icon
-- Main headline: "Your Life is the Business — Run It Like a CEO"
-- Dual CTA buttons (Primary + Secondary)
-- Social proof badges
-- Feature cards with glassmorphism effect
-- "Our Promise" section
+**JSON Section:** `indexPage`
 
-**Goal:** Get visitors to click through to the indoctrination page
+**Key Sections (in order):**
+- `hero` — Badge, headline, subheadline, CTA buttons, social proof
+- `empowering` — Two feature cards with numbered titles
+- `promise` — "Our Promise" glass card section
+- `footerCta` — Final CTA before footer
 
 ---
 
-### Step 2: **indoctrination.html** (The Letter)
+### Step 2: **indoctrination.ejs** (The Letter)
 **Purpose:** Build trust, agitate pain points, present the transformation
 
-**Key Elements:**
-- Confrontational headline: "They Sold You a Lie"
-- Long-form letter format
-- Problem agitation (the hard work lie)
-- Solution introduction (CEO mindset)
-- Benefit bullets with checkmarks
-- Highlighted callout boxes
-- CTA to view the complete strategy
+**JSON Section:** `indoctrinationPage`
 
-**Goal:** Warm up the prospect and create desire for the solution
+**Key Sections (in order):**
+- `nav` — Top navigation with "View Offer" link
+- `hero` — Bold confrontational headline
+- `letter` — The full persuasive letter including:
+  - `greeting` — "Dear Future CEO..."
+  - `paragraphs` — Opening paragraphs
+  - `callout1` — "The Real Problem?" box
+  - `centerQuote` — Key quote about data-driven business
+  - `dontGuessLines` — Three contrasting statements
+  - `benefitsHeading` + `benefits` — What changes when you step up
+  - `callout2` — "Bottom line?" box
+  - `closingParagraphs` — Final paragraphs
+  - `signoff` + `signature` — Letter closing
+- `cta` — Final CTA to view programs
 
 ---
 
-### Step 3: **sales.html** (The Offer)
-**Purpose:** Present the program and convert to application/sale
+### Step 3: **sales.ejs** (The Offer)
+**Purpose:** Present programs and convert to sale
 
-**Key Elements:**
-- Sticky navigation with "Apply Now" CTA
-- Program overview with key stats
-- 6 feature modules in grid layout
-- Social proof testimonials with 5-star ratings
-- Pricing section ($15,000 or 3x $5,500)
-- Money-back guarantee section
-- FAQ accordion
-- Final urgency CTA (3 spots left)
+**JSON Section:** `salesPage`
 
-**Goal:** Convert warm traffic into applicants
+**Key Sections (in order):**
+- `nav` — Sticky nav with "Get Started" button
+- `hero` — "Choose Your Path to Wealth" headline
+- `flagshipProgram` — $7,000 Sovereign Wealth Systems Mentorship
+- `innerCircle` — Monthly ($149.97) and Annual ($1,497) membership options
+- `strategySession` — $300 one-time 1:1 session
+- `ceoAccelerator` — $15,000 90-Day Intensive
+- `comparison` — "Which Path is Right for You?" decision helper
+- `finalCta` — Final call-to-action
+
+---
+
+## 🚀 Running the Server
+
+```bash
+# Install dependencies
+npm install
+
+# Start the server
+npm start
+
+# Or for development with auto-reload
+npm run dev
+```
+
+The server runs on `http://localhost:3000` by default.
 
 ---
 
@@ -63,7 +185,7 @@ A high-converting 3-step sales funnel for WealthsFun's CEO Accelerator Program.
 - **Gradient Text:** Red (#EF4444) to Orange (#F97316)
 
 ### Typography
-- **Font Family:** Inter (via Google Fonts CDN)
+- **Font Family:** Outfit (via Google Fonts CDN)
 - **Headings:** Bold/Black weights (700-900)
 - **Body:** Regular/Medium (400-600)
 
@@ -72,42 +194,6 @@ A high-converting 3-step sales funnel for WealthsFun's CEO Accelerator Program.
 - **Cards:** Glassmorphism effect (transparent bg, subtle border, backdrop blur)
 - **Badges:** Pill-shaped with icons
 - **Spacing:** Generous padding for premium feel
-
----
-
-## 🚀 How to Use
-
-1. **Open in Browser:**
-   ```bash
-   open index.html
-   ```
-
-2. **Test the Flow:**
-   - Start at `index.html` (squeeze page)
-   - Click "Get Started for Free" → goes to `indoctrination.html`
-   - Click "View the Complete Strategy" → goes to `sales.html`
-   - Click "Apply Now" → ready for form integration
-
-3. **Deploy:**
-   - Upload all 3 HTML files to your web host
-   - Ensure they're in the same directory
-   - Set `index.html` as your landing page
-
----
-
-## 🔧 Customization
-
-### To Update Copy:
-- Edit the HTML files directly
-- All text content is clearly structured with semantic HTML
-
-### To Change Colors:
-- Update the CSS custom properties in the `<style>` section
-- Modify Tailwind color classes (e.g., `text-red-500`, `bg-gray-800`)
-
-### To Add Form Integration:
-- Replace the "Apply Now" buttons with your form URL or modal trigger
-- Recommended: Integrate with Typeform, Calendly, or custom application form
 
 ---
 
@@ -123,23 +209,12 @@ All pages are fully responsive with:
 
 ## 🎓 Conversion Optimization Features
 
-✅ **Scarcity:** "3 spots left" urgency
-✅ **Social Proof:** Testimonials + 2,847 CEOs stat
-✅ **Guarantee:** 30-day money-back guarantee
-✅ **Value Stacking:** Clear breakdown of what's included
-✅ **Price Anchoring:** One-time vs. payment plan
-✅ **Clear CTA Progression:** Each page has clear next step
-
----
-
-## 📊 Tracking Recommendations
-
-Add these tracking points:
-1. **Page Views:** Track visits to each page
-2. **Click-Through Rate:** Index → Indoctrination → Sales
-3. **Time on Page:** Especially on indoctrination letter
-4. **CTA Clicks:** Track all "Apply Now" button clicks
-5. **Form Submissions:** Final conversion metric
+✅ **Scarcity:** Limited spots messaging  
+✅ **Social Proof:** Testimonials + CEO count stat  
+✅ **Value Stacking:** Clear breakdown of what's included  
+✅ **Price Anchoring:** Multiple price points for different budgets  
+✅ **Clear CTA Progression:** Each page has clear next step  
+✅ **Decision Helper:** "Which Path is Right for You?" section  
 
 ---
 

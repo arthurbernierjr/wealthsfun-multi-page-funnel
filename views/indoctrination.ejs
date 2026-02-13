@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= p.indoctrinationPage.title %></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Outfit', sans-serif;
+        }
+        body {
+            background-color: #050505;
+            background-image:
+                radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.03) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #EF4444 0%, #F97316 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(239, 68, 68, 0.3);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="px-6 py-6 border-b border-white/5">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <a href="/" class="text-2xl font-black text-white">
+                Wealths<span class="gradient-text">Fun</span>
+            </a>
+            <a href="/sales" class="text-gray-400 hover:text-white transition-colors">
+                <%= p.indoctrinationPage.nav.viewOfferLink %>
+            </a>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="px-6 py-16 md:py-24">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-block px-4 py-2 rounded-full bg-red-500/10 text-red-500 text-sm font-bold mb-6">
+                <%= p.indoctrinationPage.hero.badge %>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-black text-white mb-8 leading-tight">
+                <%= p.indoctrinationPage.hero.headingLine1 %><br>
+                <span class="gradient-text"><%= p.indoctrinationPage.hero.headingHighlight %></span>
+            </h1>
+            <p class="text-xl text-gray-400 leading-relaxed">
+                <%= p.indoctrinationPage.hero.subheadline %>
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== THE LETTER SECTION ===== -->
+    <section class="px-6 py-12">
+        <div class="max-w-3xl mx-auto">
+            <div class="glass-card rounded-3xl p-8 md:p-12">
+
+                <div class="prose prose-invert max-w-none">
+
+                    <!-- Greeting -->
+                    <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                        <%= p.indoctrinationPage.letter.greeting %>
+                    </p>
+
+                    <!-- Letter paragraphs (before callout 1) -->
+                    <% p.indoctrinationPage.letter.paragraphs.forEach(function(para, index) { %>
+                    <% if (index < 3) { %>
+                    <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                        <%= para %>
+                    </p>
+                    <% } %>
+                    <% }); %>
+
+                    <!-- ===== CALLOUT 1 ===== -->
+                    <div class="my-12 p-8 rounded-2xl bg-red-500/5 border-l-4 border-red-500">
+                        <p class="text-xl font-bold text-white mb-3">
+                            <%= p.indoctrinationPage.letter.callout1.heading %>
+                        </p>
+                        <p class="text-lg text-gray-300">
+                            <%= p.indoctrinationPage.letter.callout1.text %>
+                        </p>
+                    </div>
+
+                    <!-- Letter paragraphs (after callout 1) -->
+                    <% p.indoctrinationPage.letter.paragraphs.forEach(function(para, index) { %>
+                    <% if (index >= 3) { %>
+                    <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                        <%= para %>
+                    </p>
+                    <% } %>
+                    <% }); %>
+
+                    <!-- ===== CENTER QUOTE ===== -->
+                    <p class="text-2xl font-bold text-white mb-8 text-center py-6">
+                        <%= p.indoctrinationPage.letter.centerQuote.replace('data-driven business.', '') %><span class="gradient-text">data-driven business.</span>
+                    </p>
+
+                    <!-- ===== DON'T GUESS LINES ===== -->
+                    <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                        <% p.indoctrinationPage.letter.dontGuessLines.forEach(function(line, index) { %>
+                        <%= line.prefix %><strong class="text-white"><%= line.bold %></strong><%= line.suffix %><% if (index < p.indoctrinationPage.letter.dontGuessLines.length - 1) { %><br><% } %>
+                        <% }); %>
+                    </p>
+
+                    <!-- ===== BENEFITS SECTION ===== -->
+                    <h3 class="text-2xl font-black text-white mt-12 mb-6">
+                        <%= p.indoctrinationPage.letter.benefitsHeading %>
+                    </h3>
+
+                    <ul class="space-y-4 mb-8">
+                        <% p.indoctrinationPage.letter.benefits.forEach(function(benefit) { %>
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <span class="text-gray-300 text-lg"><%= benefit.text %><strong class="text-white"><%= benefit.bold %></strong><%= benefit.suffix %></span>
+                        </li>
+                        <% }); %>
+                    </ul>
+
+                    <!-- ===== CALLOUT 2 ===== -->
+                    <div class="my-12 p-8 rounded-2xl bg-gradient-to-br from-red-500/10 to-orange-500/10 border border-red-500/20">
+                        <p class="text-xl font-bold text-white mb-3">
+                            <%= p.indoctrinationPage.letter.callout2.heading %>
+                        </p>
+                        <p class="text-lg text-gray-300">
+                            <%= p.indoctrinationPage.letter.callout2.text %>
+                        </p>
+                    </div>
+
+                    <!-- ===== CLOSING PARAGRAPHS ===== -->
+                    <% p.indoctrinationPage.letter.closingParagraphs.forEach(function(para) { %>
+                    <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                        <%= para %>
+                    </p>
+                    <% }); %>
+
+                    <!-- Signoff -->
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        <%= p.indoctrinationPage.letter.signoff %>
+                    </p>
+
+                    <!-- Signature -->
+                    <p class="text-lg text-gray-400 mt-8 italic">
+                        <%= p.indoctrinationPage.letter.signature %>
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="px-6 py-16">
+        <div class="max-w-4xl mx-auto text-center">
+            <h3 class="text-3xl md:text-4xl font-black text-white mb-6">
+                <%= p.indoctrinationPage.cta.headingPart1 %><span class="gradient-text"><%= p.indoctrinationPage.cta.headingHighlight %></span>
+            </h3>
+            <p class="text-xl text-gray-400 mb-10">
+                <%= p.indoctrinationPage.cta.description %>
+            </p>
+            <a href="<%= p.shared.checkoutUrl %>" class="btn-primary text-white px-10 py-5 rounded-full font-bold text-lg inline-flex items-center gap-2">
+                <%= p.indoctrinationPage.cta.buttonText %>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="px-6 py-8 border-t border-white/5">
+        <div class="max-w-6xl mx-auto text-center text-gray-500 text-sm">
+            <p><%- p.shared.copyright %></p>
+        </div>
+    </footer>
+
+</body>
+</html>
